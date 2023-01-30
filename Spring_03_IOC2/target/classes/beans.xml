@@ -1,0 +1,24 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--无参构造创建
+    <bean id="MyUser1" class="com.kuang.pojo.User">
+        <property name="name" value="易生"/>
+    </bean>-->
+    <!--有参构造方法1：按参数名顺序创建
+    <bean id="MyUser1" class="com.kuang.pojo.User">
+        <constructor-arg index="0" value = "浩然的JAVA"/>
+    </bean>-->
+    <!--有参构造方法2：按参数类型创建不推荐！！！！
+    <bean id="MyUser1" class="com.kuang.pojo.User">
+        <constructor-arg type="java.lang.String" value = "浩然的PYTHON"/>
+    </bean>-->
+<!--
+    有参构造方法3：按参数名创建
+-->
+    <bean id="MyUser1" class="com.kuang.pojo.User">
+        <constructor-arg name="name" value = "浩然的Mysql"/>
+    </bean>
+</beans>

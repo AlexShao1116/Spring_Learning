@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:annotation-config/>
+
+    <bean id="dog1" class="com.demo1.pojo.Dog"/>
+    <bean id="cat" class="com.demo1.pojo.Cat"/>
+
+   <!-- <bean id="user" class="com.demo1.pojo.People">
+        <property name="cat" ref="cat"/>
+        <property name="dog" ref="dog"/>
+        <property name="str" value="qinjiang"/>
+    </bean>-->
+
+    <!--byName自动查找和对象属性名称相同的bean
+    byType自动查找和对象属性相同的唯一！！！bean-->
+    <!--<bean id="user1" class="com.demo1.pojo.People" autowire="byType">
+        <property name="str" value="qinjiang"/>
+    </bean>-->
+
+    <!--Autowired注解正常用法：
+    1.作用在class属性上时自动根据bean名称装配
+    2.作用在class set方法上时自动根据bean名称装配（根据反射，作用在属性上时甚至可以直接删除set方法）
+    3.required配合autowired使用时，@Autowired（required = false），证明装配对象可以不存在
+    4.@Qualifier需要配合Autowired使用，用于更改属性默认名称以搭配bean的名称
+        例如bean id = dog1，属性名为dog， 因此用Qualifier更改为 @Qualifier(value = "dog1")-->
+
+   <!-- Recourse注解使用方法：
+    1：先按照byName进行匹配，若不成功，则bytype，若都不成功则报错。-->
+    <bean id="user1" class="com.demo1.pojo.People"/>
+
+</beans>
